@@ -80,12 +80,12 @@ public class DefaultTeslaAether implements TeslaAether {
 
   //private Logger logger = LoggerFactory.getLogger(TeslaAether.class);
 
-  private RepositorySystem system;
-  private RepositorySystemSession session;
-  private ModelBuilder modelBuilder;
-  private ArtifactResolver artifactResolver;
-  private RemoteRepositoryManager remoteRepositoryManager;
-  private List<RemoteRepository> remoteRepositories;
+  protected RepositorySystem system;
+  protected RepositorySystemSession session;
+  protected ModelBuilder modelBuilder;
+  protected ArtifactResolver artifactResolver;
+  protected RemoteRepositoryManager remoteRepositoryManager;
+  protected List<RemoteRepository> remoteRepositories;
 
   public DefaultTeslaAether() {
     this(new File(System.getProperty("user.home"), ".m2/repository"), "http://repo1.maven.org/maven2/");
@@ -327,7 +327,7 @@ public class DefaultTeslaAether implements TeslaAether {
 
   // Util
 
-  private Properties toProperties(Map<String, String> dominant, Map<String, String> recessive) {
+  public Properties toProperties(Map<String, String> dominant, Map<String, String> recessive) {
     Properties props = new Properties();
     if (recessive != null) {
       props.putAll(recessive);
